@@ -225,7 +225,69 @@ export class UpdateComponent {
 
 ## Funcionalidades Adicionales
 - Persistencia de Datos: Se utiliza JSON Server para proporcionar persistencia de datos, lo que permite crear, leer, actualizar y eliminar posts.
+```
+@Injectable({
+  providedIn: 'root',
+})
+export class PostService {
+
+  private apiURL = 'http://localhost:3000';
+
+// Http Header Options
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
+// Constructor
+
+  constructor(private httpClient: HttpClient) { }
+
+  // Metodos
+
+ // GET
+	getAll(): Observable<any> {
+    return this.httpClient.get(this.apiURL + '/posts/');
+  } // usar adecuadamente las interfaces
+
+```
 - Filtrar Posts: Se ha añadido un botón de filtrar para permitir a los usuarios buscar posts más fácilmente en la lista.
+HTML:
+```
+<div class="row mb-3">
+    <div class="col-md-4">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" #filter (keydown.enter)="filterPosts(filter.value)">
+        <button class="btn btn-primary" type="button" (click)="filterPosts(filter.value)">Filter</button>
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="button" (click)="clearSearch()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+```
+Metodos:
+´´´
+clearSearch() {
+    this.filteredPosts = this.posts; // Al limpiar la búsqueda, mostramos todos los posts
+  }
+
+  filterPosts(searchTerm : string) {
+    if (!searchTerm.trim()) {
+      this.filteredPosts = this.posts; // Si el término de búsqueda está vacío, mostramos todos los posts
+      return;
+    }
+
+    // Filtramos los posts según el término de búsqueda en id, title y body
+    this.filteredPosts = this.posts.filter(post =>
+      post.id.toString().includes(searchTerm.trim()) ||
+      post.title.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
+      post.body.toLowerCase().includes(searchTerm.trim().toLowerCase())
+    );
+  }
+´´´
 
 ## Tecnologías Utilizadas
 - Angular:
