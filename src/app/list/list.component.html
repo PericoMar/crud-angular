@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>CRUD Angular 17</h1>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" #filter (keydown.enter)="filterPosts(filter.value)">
+        <button class="btn btn-primary" type="button" (click)="filterPosts(filter.value)">Filter</button>
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="button" (click)="clearSearch()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" routerLink="create/" class="btn btn-success">Create New Post</a>
+
+  <table class="table table-striped">
+      <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Body</th>
+              <th width="250px">Action</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let post of filteredPosts">
+              <td>{{ post.id }}</td>
+              <td>{{ post.title }}</td>
+              <td>{{ post.body }}</td>
+              <td>
+                <a href="#" [routerLink]="[post.id , 'read']" class="btn btn-info">View</a>
+                <a href="#" [routerLink]="[post.id, 'update']" class="btn btn-primary">Edit</a>
+                <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+      </tbody>
+  </table>
+</div>
+

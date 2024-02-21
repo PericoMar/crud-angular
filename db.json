@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": "3",
+      "title": "Alimentación saludable",
+      "body": "Es importante mantener una dieta equilibrada y variada para estar saludable."
+    },
+    {
+      "id": "4",
+      "title": "Meditación",
+      "body": "La meditación puede ayudar a reducir el estrés y mejorar la concentración."
+    },
+    {
+      "id": "5",
+      "title": "Viajar",
+      "body": "Explorar nuevos lugares y culturas puede ser una experiencia enriquecedora."
+    },
+    {
+      "id": "6",
+      "title": "Aprender un nuevo idioma",
+      "body": "Dominar un nuevo idioma puede abrir muchas puertas en términos de oportunidades laborales y culturales."
+    },
+    {
+      "id": "7",
+      "title": "Cuidado del medio ambiente",
+      "body": "Todos debemos contribuir a cuidar el medio ambiente para preservar nuestro planeta para las generaciones futuras."
+    },
+    {
+      "id": "8",
+      "title": "Lectura",
+      "body": "La lectura es una forma fantástica de aprender y entretenerse al mismo tiempo."
+    },
+    {
+      "id": "9",
+      "title": "Arte y creatividad",
+      "body": "Fomentar la creatividad a través del arte puede proporcionar una salida saludable para expresarse."
+    },
+    {
+      "id": "10",
+      "title": "Voluntariado",
+      "body": "El voluntariado es una manera gratificante de contribuir a la comunidad y hacer una diferencia en la vida de los demás."
+    }
+  ]
+}
